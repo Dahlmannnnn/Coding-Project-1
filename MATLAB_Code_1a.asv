@@ -3,15 +3,10 @@
 % Coding Project 1
 % Using Blood Pressure to Identify Risk of Heart Disease
 
-% Input Data Set - Store data in matrix of size 11,n where n is the number
-% of data points
+% Input Data Set - Store size
+% of vector in variable n
 
-% Download Data set from online, create file 'output.txt'
-fid = fopen('output.txt','wb');
-b=websave('output.txt', 'https://web.stanford.edu/~hastie/ElemStatLearn/datasets/SAheart.data');
-beta = char(b);
-fwrite(fid, beta, 'char');
-fclose(fid);
+
 
     % Read .txt file in same folder, starting with line 2 (Line 1 is header)
     % Input data to vector V(Data point (###), Blood Pressure (###))
