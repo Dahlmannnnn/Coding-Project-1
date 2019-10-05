@@ -12,19 +12,9 @@ b=websave('output.txt', 'https://web.stanford.edu/~hastie/ElemStatLearn/datasets
 beta = char(b);
 fwrite(fid, beta, 'char');
 fclose(fid);
-
-    % Read .txt file in same folder, starting with line 2 (Line 1 is header)
-    % Input data to vector V(Data point (###), Blood Pressure (###))
-
-% create Vector (v) of size n and establish kernels (k) at each datapoint
-
-    % Max(V(1))=n
-    % vector k[n]=[F(d)]
-    % F(d)-> sinc^2(d) -> limit sinc function to +-gamma, where gamma is
-    % the distance from current datapoint -> should determine best value
-    % for gamma
-    % 
-    
+% Save the text file as a table and limit to second column
+a = readtable('output.txt');
+dat = a(:,[2]);
 
 % Sum Values of Kernels to create equation Y
 
