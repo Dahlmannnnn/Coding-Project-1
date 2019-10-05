@@ -3,8 +3,6 @@
 % Coding Project 1
 % Using Blood Pressure to Identify Risk of Heart Disease
 
-% Input Data Set - Store data in matrix of size 11,n where n is the number
-% of data points
 
 % Download Data set from online, create file 'output.txt'
 if isfile('output.txt')    
@@ -31,11 +29,11 @@ MN = mean(dat);
 syms f(x)
 hold on
 
-for d = 1:1:N
+for d = 1:1:50
     disp(d)
     dd=dat(d);
-f = symfun(normpdf(x,dd,SD),x);
-fplot(f/2, [100 220],'-b')
+f = symfun(normpdf(x,dd,(SD)),x);
+fplot(f, [100 220],'-b')
 ylim ([0 0.025])
 end
 
