@@ -28,13 +28,12 @@ N = n(2);
 SD = std(dat);
 MN = mean(dat);
 
-syms f(x)
 
-d= MN;
-%for d = 0:1:N
-f = symfun(normpdf(x,MN,SD)+d,x);
-fplot(f)
-%end
+for d = 0:1:N
+f = symfun(normpdf(x,MN,SD)+N,x);
+plot(f(x))
+end
+
 
 
 % Output Graph n,k, and Y/10 [This allows the data to be displayed ]
