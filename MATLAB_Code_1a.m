@@ -19,23 +19,34 @@ end
 a = readtable('output.txt');
 dat = (table2array((a(:,[2])))).';
 n = size(dat);
-x=-50:0.01:50;
-
+x=100:0.01:220;
+X=size(x);
 
 N = n(2);
+dx=zeros(X(2), N+1);
+dx(:,1)=x;
 SD = std(dat);
 MN = mean(dat);
-
 syms f(x)
+syms g(x)
 hold on
 
-for d = 1:1:50
+for d = 1:1:10
     disp(d)
     dd=dat(d);
-f = symfun(normpdf(x,dd,(SD)),x);
-fplot(f, [100 220],'-b')
-ylim ([0 0.025])
+f = symfun(normpdf(x,dd,4),x);
+for sx = 1:1:X
+dx(sx,dd)=f(sx/);
 end
 
+%f = (1/(N*2*(SD^2*pi)^(x/2)))*exp(-0.5*abs(MN-dd)/SD)^2;
+%f = normpdf(x,dd,sqrt(SD))/N;
+g =@(x) (f+g(x))/2;
+fplot(f/15, [100 220],'-b')
+plot([dd dd], [-0.1 0], '-g')
+ 
+ylim ([-0.001 0.025])
+end
+fplot(g)
 
 % Output Graph n,k, and Y/10 [This allows the data to be displayed ]
