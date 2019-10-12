@@ -44,8 +44,8 @@ for d=2:1:N+1
     plot(dx(1,:),dx(d,:)/10,'-b')
 end
 for dd=1:1:xd
-su(dd)=sum(dx)/N;
+su(dd)=sum(dx(:,dd));
 end
 ylim ([-0.001 0.025])
 
-plot(dx(1,:),su/10,'-r')
+plot(dx(1,:),su,'-r')
