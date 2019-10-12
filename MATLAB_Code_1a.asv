@@ -19,6 +19,7 @@ end
 % Save the text file as a table and limit to second column
 a = readtable('output.txt');
 dat = (table2array((a(:,[2])))).';
+
 % Initiate the variables for the code
 n = size(dat);
 x=100:0.01:220;
@@ -29,7 +30,7 @@ dx(1,:)=100:0.01:220;
 hold on
 
 % first for loop is to store the values in a matrix
-for d = 2:1:N+1
+for d = 2:1:N
     % This next line will be deleted before submission, just for my own
     % information
     disp(d)
@@ -38,14 +39,18 @@ for d = 2:1:N+1
     for xd = 1:1:X(2)
        dx(d+1,xd)= normpdf(100+(xd/100),dd,4);
     end
+    % This line plots the green bars indicating the initial data points
 plot([dd dd], [-0.1 0], '-g')
 end
-for d=2:1:N+1
+% This for loop plots each of the kernels in blue. They are scaled down by
+% 10 as was the case in the example
+for d=2:1:N
     plot(dx(1,:),dx(d,:)/10,'-b')
+    for dd=1:1:xd
+        su(dd)=su(dd)+(dx(d,dd));
+    end
 end
-for dd=1:1:xd
-su(dd)=sum(dx(:,dd));
-end
+
 ylim ([-0.001 0.025])
 
-plot(dx(1,:),su,'-r')
+plot(dx(1,:),su/N,'-r')
