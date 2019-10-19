@@ -9,4 +9,4 @@ This is intended to be used for the NAU class EE599 - Machine Learning class as 
 This file can be run by activating MATLAB and running the code.
 
 Code lines 40,45,and 53 produce the output graph below
-![data output] (https://github.com/Dahlmannnnn/Coding-Project-1/blob/master/Output.png)
+![Output](https://github.com/Dahlmannnnn/Coding-Project-1/blob/master/Output.png)
