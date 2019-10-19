@@ -5,4 +5,8 @@ This is also work on reproducing figure 6.13 from the Hastie book, The Elements 
 
 This is intended to be used for the NAU class EE599 - Machine Learning class as part of the initial coding project to demonstrate reprousable research.
 
+
 This file can be run by activating MATLAB and running the code.
+
+Code lines 40,45,and 53 produce the output graph below
+![data output] (https://github.com/Dahlmannnnn/Coding-Project-1/blob/master/Output.png)
