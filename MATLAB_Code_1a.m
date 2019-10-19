@@ -3,18 +3,19 @@
 % Coding Project 1
 % Using Blood Pressure to Identify Risk of Heart Disease
 
-clear
+clear;
+clc;
 
 % Download Data set from online, create file 'output.txt'
 if isfile('output.txt')    
-    fprintf('Downloading Data')
+    fprintf('Downloading Data\n')
 fid = fopen('output.txt','wb');
 b=websave('output.txt', 'https://web.stanford.edu/~hastie/ElemStatLearn/datasets/SAheart.data');
 beta = char(b);
 fwrite(fid, beta, 'char');
 fclose(fid);
 else
-fprintf('File Exists')
+fprintf('File Exists\n')
 end
 % Save the text file as a table and limit to second column
 a = readtable('output.txt');
@@ -31,9 +32,6 @@ hold on
 
 % first for loop is to store the values in a matrix
 for d = 2:1:N
-    % This next line will be deleted before submission, just for my own
-    % information
-    disp(d)
     dd=dat(d-1);
     % calculates the gaussian distribution around each data point 
     for xd = 1:1:X(2)
@@ -51,6 +49,6 @@ for d=2:1:N
     end
 end
 
-ylim ([-0.001 0.025])
+ylim ([-0.001 max(su)/N])
 
 plot(dx(1,:),su/N,'-r')
