@@ -1,10 +1,8 @@
+function MATLAB_Code_1a(~)
 % Alexander Dahlmann
 % EE599 Machine Learning - Fall 2019
 % Coding Project 1
 % Using Blood Pressure to Identify Risk of Heart Disease
-
-clear;
-clc;
 
 % Download Data set from online, create file 'output.txt'
 if isfile('output.txt')    
@@ -19,7 +17,7 @@ fprintf('File Exists\n')
 end
 % Save the text file as a table and limit to second column
 a = readtable('output.txt');
-dat = (table2array((a(:,[2])))).';
+dat = (table2array((a(:,(2))))).';
 
 % Initiate the variables for the code
 n = size(dat);
@@ -27,6 +25,7 @@ x=100:0.01:220;
 X=size(x);
 N = n(2);
 su=zeros(X(2),1);
+dx=zeros(N+1,X(2));
 dx(1,:)=100:0.01:220;
 hold on
 
@@ -50,5 +49,6 @@ for d=2:1:N
 end
 
 ylim ([-0.001 max(su)/N])
-
+% This line plots the final average summation of the kernels in red
 plot(dx(1,:),su/N,'-r')
+end
